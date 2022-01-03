@@ -1,0 +1,71 @@
+@import "../../variables.scss";
+
+.profile-editinfo-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-editinfo-bg {
+    background-color: rgba(0, 0, 0, 0.836);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.profile-editinfo-box {
+    position: relative;
+    width: 600px;
+    background-color: $color-bg-white;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.form-group {
+    margin: 0 auto 1.25rem auto;
+    padding: 0.25rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    outline: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-clip: padding-box;
+}
+
+.profile-editinfo-btn {
+    width: 100%;
+    background-color: #f2aec1;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+
+    &:hover > .profile-editinfo-btn-overlay {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        padding: 0;
+        top: 0;
+        left: 0;
+        background-color: #000;
+        opacity: 0.1;
+        border-radius: 4px;
+    }
+}

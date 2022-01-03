@@ -1,0 +1,104 @@
+@import "../../variables.scss";
+
+.rightbar {
+    flex: 2.8;
+    height: calc(100vh - 50px);
+    overflow-y: scroll;
+    position: sticky;
+    top: 50px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(179, 179, 179);
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .rightbar-container {
+    padding: 20px;
+  }
+
+  .rightbar-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  .rightbar-list-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 6px;
+    position: relative;
+
+    &:hover > .rightbar-overlay {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      padding: 0;
+      top: 0;
+      left: 0;
+      background-color: #000;
+      opacity: 0.05;
+      border-radius: 4px;
+    }
+  }
+  
+  .rightbar-icon {
+    margin-right: 15px;
+  }
+  
+  .rightbar-hr {
+    border: 0;
+    height: 1px;
+    background: $color-font-primary;
+    opacity: 0.2;
+    margin: 10px 0;
+  }
+
+  .rightbar-friend-title {
+    font-size: 18px;
+    padding: 10px;
+  }
+
+  .rightbar-link {
+    text-decoration: none;
+    color: inherit; 
+  }
+
+  .rightbar-item-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .rightbar-online{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: limegreen;
+    position: absolute;
+    bottom: -3px;
+    right: 0;
+    border: 2px solid white;
+}
+
+.rightbar-avatar {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.rightbar-name {
+    padding: 8px;
+}
