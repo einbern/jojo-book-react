@@ -27,7 +27,7 @@ export default function Sidebar() {
         <div className="sidebar">
             <div className="sidebar-container">
                 <ul className="sidebar-list">
-                    <Link className="sidebar-link" to={``} >
+                    <Link className="sidebar-link" to={`/friend`} >
                         <li className="sidebar-list-item">
                             <Person className="sidebar-icon" />
                             <span className="sidebar-list-item-text">Friends</span>

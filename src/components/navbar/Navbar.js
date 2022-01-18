@@ -1,8 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import './navbar.scss'
 import { Search, Person, Chat, Notifications, Logout } from "@mui/icons-material"
 import { AuthContext } from '../../context/AuthContext'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import { useRef } from 'react'
 
 export default function Navbar() {
 
@@ -12,6 +14,21 @@ export default function Navbar() {
         localStorage.clear()
         window.location.reload();
     };
+
+    const [friends, setFriends] = useState({});
+    let navigate = useNavigate();
+    const word = useRef();
+
+    const handleKeyDown = async (e) => {
+        if (e.key === 'Enter') {
+            navigate('/friend/' + word.current.value);
+            // try {
+            //     const res = await axios.get("/users?username=" + 'edward');
+            //     setFriends(res.data);
+            // } catch (err) { console.log(err) }
+        }
+    };
+
     return (
         <header>
             <div className="navbar fixed-top">
@@ -24,7 +41,7 @@ export default function Navbar() {
                     <div className="navbar-m">
                         <span className="search-bar">
                             <Search className="search-icon" />
-                            <input className="search-input" placeholder="Search for friends or posts" />
+                            <input className="search-input" placeholder="Search for friends" onKeyDown={handleKeyDown} ref={word}/>
                         </span>
                     </div>
                     <div className="navbar-r">
@@ -35,7 +52,7 @@ export default function Navbar() {
                             } alt="" className="avatar" />
                             <span>{user.username}</span>
                         </Link>
-                        <div className="navbar-icon-item">
+                        {/* <div className="navbar-icon-item">
                             <Person />
                             <span className="navbar-icon-badge">1</span>
                         </div>
@@ -46,7 +63,7 @@ export default function Navbar() {
                         <div className="navbar-icon-item">
                             <Notifications />
                             <span className="navbar-icon-badge">1</span>
-                        </div>
+                        </div> */}
                         <div className="logout" onClick={LogoutHandle}>
                             <div className="navbar-icon-item">
                                 <Logout />

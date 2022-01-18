@@ -11,6 +11,7 @@ import Register from "./pages/register/Register";
 import { AuthContext } from "./context/AuthContext";
 import { useContext } from "react";
 import Profile from "./pages/profile/Profile";
+import Friend from "./pages/friend/Friend";
 
 function App() {
   const {user} = useContext(AuthContext);
@@ -22,6 +23,8 @@ function App() {
         <Route path="/login" element={user ? <Navigate to="/"/> : <Login/>}/>
         <Route path="/register" element={user ? <Navigate to="/"/> : <Register/>}/>
         <Route path="/profile/:username" element={user ? <Profile/> : <Navigate to="/"/>}/>
+        <Route path="/friend" element={user ? <Friend/> : <Navigate to="/"/>}/>
+        <Route path="/friend/:username" element={user ? <Friend/> : <Navigate to="/"/>}/>
       </Routes>
     </Router>
   );
