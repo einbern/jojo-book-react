@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../context/AuthContext';
 import './rightbar.scss'
+import { Link} from 'react-router-dom';
 
 export default function Rightbar() {
     const PF = process.env.REACT_APP_IMAGES_PERSON;
@@ -22,19 +23,22 @@ export default function Rightbar() {
     return (
         <div className="rightbar">
             <div className="rightbar-container">
-                <p className='rightbar-friend-title'>Online Friends</p>
+                <p className='rightbar-friend-title'>Friends</p>
                 <ul className="rightbar-list">
                     {friends.map((friend) => (
-                        <li className="rightbar-list-item">
-                            <div className="rightbar-item-container">
-                                <img src={friend.profilePicture
-                                    ? PF + friend.profilePicture
-                                    : PF + "noAvatar.png"} alt="" className="rightbar-avatar" />
-                                <span className="rightbar-online"></span>
-                            </div>
-                            <span className="rightbar-name">{friend.username}</span>
-                            <div className="rightbar-overlay"></div>
-                        </li>)
+                        <Link className="sidebar-link" to={`/profile/${friend.username}`} >
+                            <li className="rightbar-list-item">
+                                <div className="rightbar-item-container">
+                                    <img src={friend.profilePicture
+                                        ? PF + friend.profilePicture
+                                        : PF + "noAvatar.png"} alt="" className="rightbar-avatar" />
+                                    {/* <span className="rightbar-online"></span> */}
+                                </div>
+                                <span className="rightbar-name">{friend.username}</span>
+                                <div className="rightbar-overlay"></div>
+                            </li>
+                        </Link>
+                    )
                     )}
                 </ul>
             </div>

@@ -16,6 +16,7 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.0",
     "sass": "^1.45.0",
+    "socket.io-client": "^4.4.1",
     "timeago.js": "^4.0.2",
     "web-vitals": "^2.1.2"
   },
@@ -43,5 +44,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8900/api/"
+  "proxy": "http://localhost:8800/api/"
 }

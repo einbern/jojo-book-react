@@ -9,9 +9,10 @@ export default function Friend() {
     const username = useParams().username;
     const PF = process.env.REACT_APP_IMAGES_PERSON;
     const [friends, setFriends] = useState([]);
+    const [isFetch, setIsFetch] = useState(false);
     const { user: currentUser } = useContext(AuthContext);
 
-    useEffect(() => {
+    useEffect( async () => {
 
         if (username === undefined) {
             const getFriends = async () => {
@@ -22,7 +23,7 @@ export default function Friend() {
                     console.log(err);
                 }
             };
-            getFriends();         
+            await getFriends();         
         } else {
             const getFriends = async () => {
                 try {
@@ -34,10 +35,10 @@ export default function Friend() {
                     console.log(err);
                 }
             };
-            getFriends();   
+            await getFriends();   
         }
 
-
+        setIsFetch(true);
     }, []);
 
     return (
@@ -58,7 +59,7 @@ export default function Friend() {
                                 </div>
                             </div>
                         </Link>
-                    )) : <h1>Not found user: {username}</h1>}
+                    )) : isFetch ? <h1>Not found user: {username}</h1> : <></>}
 
                 </div>
             </div>

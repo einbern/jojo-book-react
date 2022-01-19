@@ -1,0 +1,44 @@
+@import "../../variables.scss"; 
+
+.chatOnlineFriend:hover {
+  background-color: rgb(245, 243, 243);
+}
+.chatOnlineFriend {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 8px;
+    user-select: none;
+  }
+  
+  .chatOnlineImgContainer {
+    position: relative;
+    margin-right: 10px;
+  }
+ 
+  .chatOnlineImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid white;
+  }
+  
+  .chatOnlineBadge {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: limegreen;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .chatOnlineName {
+      display: none;
+    }
+  }
+  

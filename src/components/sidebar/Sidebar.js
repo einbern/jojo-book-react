@@ -15,7 +15,6 @@ export default function Sidebar() {
 
     useEffect(() => {
         const fetchNotFriends = async () => {
-            console.log(currentUser._id)
 
             const res = await axios.get(`/users/notfriends/${currentUser._id}`)
             setNotFriends(res.data)
@@ -34,7 +33,7 @@ export default function Sidebar() {
                             <div className="sidebar-overlay"></div>
                         </li>
                     </Link>
-                    <Link className="sidebar-link" to={``} >
+                    <Link className="sidebar-link" to={`/messenger`} >
                         <li className="sidebar-list-item">
                             <Chat className="sidebar-icon" />
                             <span className="sidebar-list-item-text">Chats</span>
